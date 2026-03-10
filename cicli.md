@@ -120,3 +120,74 @@ while contatore >= 0:
 print("Ho finito di contare!")
 ```
 Gli output in questo caso saranno i numeri da 30 a 0 in ordine decrescente, con la frase finale: "Ho finito di contare!", che verrà stampata come output soltanto dopo che il ciclo while avrà finito di eseguirsi ciclicamente.
+
+<h2>Le Liste nei cicli while:</h2>
+I cicli while non sono utili soltanto per contare, essi possono anche essere utilizzati per iterare gli elementi di una lista!
+
+<br> Nel caso volessimo che gli elementi di una lista vengano esposti come output, ordinati uno dopo l'altro, dovremmo assicurarci di impostare in primis una variabile contenete la lunghezza **len** della nostra lista, e in secundis una variabile **index** impostata a 0, in modo tale da poterla incrementare all'interno del nostro ciclo while. Vediamo un esempio per schiarirci le idee:
+
+```python
+materie = ["Algebra", "Geometria", "Fisica", "Informatica", "Elettronica"]
+
+len_materie = len(materie)
+index = 0
+
+while index < len_materie:
+	print("Quest'ora si farà " + str(materie[index]) + ".")
+	index += 1
+```
+
+In questo caso l'output sarà, su 5 righe distinte: 
+``Quest'ora si farà Algebra.``
+``Quest'ora si farà Geometria.`` 
+``Quest'ora si farà Fisica.``
+``Quest'ora si farà Informatica.`` 
+``Quest'ora si farà Elettronica.``
+
+<h2>Strutture di controllo nei cicli:</h2>
+
+Le strutture di controllo non sono altre che **if**, **else** ed **elif**! Ricapitoliamo brevemente il loro funzionamento.
+<br>
+<br>Quando ci troviamo di fronte a due possibili "strade" da seguire, utilizziamo semplicemente l'if e l'else:
+- **if**: esegue il blocco di codice se la determinata condizione è vera (*True*);
+- **else**: esegue il blocco di codice se la determinata condizione è falsa o se tutte le condizioni precedenti sono false (*False*).
+  
+<br> Ma quando ci troviamo a dover inserire diverse possibilità, non solo 2, dobbiamo utilizzare l'elif:
+- **elif** (else if): esegue il blocco di codice se e solo se la sua condizione è vera (*True*) e se l'if e gli eventuali elif precedenti hanno la condizione falsa (*False*).
+
+<h2>Il break nei cicli:</h2>
+Il break è fondamentale quando ci troviamo di fronte a liste contenenti molti elementi, per capirlo al meglio impostiamo subito un esempio. Voglio trovare, all'interno di una lista contenente i numeri da 0 a 100, il numero 39:
+
+```python
+# Imposto la lista velocemente con il range()
+lista = range(0, 101)
+# Imposto il ciclo for, in modo tale da trovare il numero target
+for num in lista:
+  if num == 39:
+	# Se il numero 39 è presente, allora stampa l'output:
+    print("Ho trovato il numero che ti interessa, esso è: " + str(num) + ".")
+```
+
+L'output in questo caso sarà: "Ho trovato il numero che ti interessa, esso è: 39." Il problema di questo ciclo è in realtà un **problema invisibile**, non possiamo rendercene conto in base all'output. 
+<br> La verità è che il nostro ciclo for, nonostante abbia trovato il numero bersaglio 39, continua a lavorare in background fino a quando giunge al termine dell'intera lista. Vediamolo utilizzando print() prima dell'if:
+
+```python
+lista = range(0, 101)
+for num in lista:
+  print(num)
+  if num == 39:
+    print("Ho trovato il numero che ti interessa, esso è: " + str(num) + ".")
+```
+
+L'output in questo caso saranno tutti i numeri fino al 39, poi la frase "Ho trovato il numero che ti interessa, esso è: 39." e poi tutti i numeri fino al 100! Questo potrebbe diventare un enorme spreco di risorse nel caso in cui ci fossero migliaia e migliaia di elementi presenti all'interno della lista!
+<br> Per ovviare al problema, utilizziamo **break**: una volta che il programma incontra il break, il ciclo viene terminato immediatamente! Vediamolo subito:
+
+```python
+lista = range(0, 101)
+for num in lista:
+  print(num)
+  if num == 39:
+    print("Ho trovato il numero che ti interessa, esso è: " + str(num) + ".")
+    break
+```
+Ora l'output saranno i numeri fino al 39, seguiti dalla frase "Ho trovato il numero che ti interessa, esso è: 39.", abbiamo quindi visto come il break possa interrompere il ciclo una volta trovato il bersaglio, evitando sprechi di risorse!
