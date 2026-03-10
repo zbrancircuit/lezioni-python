@@ -210,5 +210,209 @@ print(voti_alunni)
 L'output in questo caso sarà: [['A', 9], ['B', 6], ['C', 10], ['D', 7]]. Abbiamo modificato il voto di B, facendolo passare da 8.5 a 6!
 
 <h2> Le liste consecutive, la funzione range()</h2>
+Quando vogliamo generare una lista di numeri, al posto di scriverli tutti, possiamo utilizzare la funzione range().
 
--
+Se inseriamo **UN INPUT**: questa funzione prenderà il numero inserito come input e creerà una lista che andrà da 0 fino al numero prima di quello inserito come input. 
+<br>
+**Attenzione**: quando vogliamo eseguire il print della nostra variabile range, dobbiamo trasformarla in una lista utilizzando la funzione list(). Per es.:
+
+```python
+#Esempio da 0 a 8
+zero_a_8 = range(9)
+print(list(zero_a_8))
+```
+L'output in questo caso sarà: [0, 1, 2, 3, 4, 5, 6, 7, 8] Abbiamo dovuto mettere un indice grande con un numero in più rispetto all'ultimo numero desiderato nella lista!
+<br>
+
+Se invece inseriamo **DUE INPUT**: possiamo far sì che la nostra lista vada dal numero inserito come primo input _fino al numero prima di quello inserito come secondo input_! Per es.:
+
+```python
+#Esempio da 5 a 15
+range_5_15 = range(5, 16)
+print(list(range_5_15))
+```
+L'output in questo caso sarà: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]. Sempre attenzione all'indice del numero finale, nel caso del primo non possiamo confonderci!
+<br>
+
+Se invece inseriamo **TRE INPUT**: possiamo creare una lista che "salta" determinati numeri. Per es., se creassimo una lista con gli input range(2, 9, 2), avremmo una lista nella quale si salterà di 2 da un numero al prossimo! Quindi l'ordine sarà: numero d'inizio, numero finale (non incluso nel range, il range si ferma come al solito al numero prima!) e il numero di "salti" che deve fare. Vediamolo meglio con un es.:
+
+```python
+#Da 0 a 40 facendo salti di 5 tra ogni numero
+range1 = range (0, 40, 5)
+print(list(range1))
+```
+L'output in questo caso sarà: [0, 5, 10, 15, 20, 25, 30, 35] Vale la solita regola per il numero finale!
+
+<h2> La funzione len(): </h2>
+Molto semplice, la utilizziamo quando vogliamo sapere il numero di elementi all'interno di una lista. Una volta applicato a una lista questo metodo ci mostrerà in output il numero di elementi presenti. Per es.:
+
+```python
+#Esempio con print:
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(len(lista)) #Attenzione alla sintassi!
+```
+L'output in questo caso sarà "10".
+
+```python
+#Esempio con variabile:
+inventario =["letto matrimoniale", "letto singolo", "cuscino", "cuscino", "cuscino", "letto matrimoniale", "letto singolo", "divano", "divano", "cuscino"]
+inventario_len = len(inventario)
+```
+In questo caso il valore scritto nella variabile "inventario_len" sarà "10".
+
+<h2> Il processo di splicing: </h2>
+
+Viene utilizzato quando vogliamo estrarre, da una lista, soltanto una porzione di essa. Dividere la lista in questo modo prende il nome di splicing. La sintassi basilare è **lista[start:end]**, dove start è l'indice del primo elemento che vogliamo includere nella nostra selezione, mentre end è l'indice dell'ultimo elemento che vogliamo aggiungere +1 (sempre l'antica regoletta). Per es.:
+
+```python
+#Esempio 1:
+lista = ["a", "b", "c", "d", "e", "f", "g"]
+esempio_slice = lista[1:6]
+print(esempio_slice)
+# L'output in questo caso sarà: ['b', 'c', 'd', 'e', 'f']
+
+#Esempio 2:
+lista = ["a", "b", "c", "d", "e", "f", "g"]
+esempio_slice = lista[2:4]
+print(esempio_slice)
+# L'output in questo caso sarà: ['c', 'd']
+```
+
+Possiamo anche utilizzare la sintassi **lista[:n]**, positiva, che ci andrà a selezionare *i primi n elementi della lista*; o la sintassi **lista[-n:]**, negativa, che ci andrà a selezionare *gli ultimi n elementi della lista*. Per es.:
+```python
+#Esempio 1:
+frutta = ["mele", "ciliegie", "ananas", "arance", "mango"]
+print(frutta[:3])
+#L'output in questo caso sarà: ['mele', 'ciliegie', 'ananas']
+
+#Esempio 2:
+frutta = ["mele", "ciliegie", "ananas", "arance", "mango"]
+print(frutta[-3:])
+# L'output in questo caso sarà: ['ananas', 'arance', 'mango']
+```
+
+Esiste anche la sintassi **lista[:-n]** (con i : prima del -n) che ci mostrerà *tutti tranne gli n ultimi elementi della lista*. Per es.:
+```python
+frutta = ["mele", "ciliegie", "ananas", "arance", "mango"]
+print(frutta[:-3])
+# L'output in questo caso sarà: ['mele', 'ciliegie']
+```
+<h2> Il metodo count(): </h2>
+
+Possiamo utilizzare questo metodo quando desideriamo sapere quante volte un elemento n appare all'interno di una **lista**. Per es.:
+
+```python
+#Esempio lista 1:
+lista = [1, 2, "n", 4, 5, "n", "n", 8, 9, 10, "n", 11, "n", 12]
+num_n = lista.count("n")
+print(num_n)
+#L'output in questo caso sarà "5"!
+
+#Esempio lista 2:
+voti = ["Jake", "Jake", "Laura", "Laura", "Laura", "Jake", "Jake", "Jake", "Laura", "Claudio", "Claudio", "Jake", "Jake", "Claudio", "Laura", "Claudio", "Jake", "Jake", "Claudio", "Laura"]
+num_voti_jake = voti.count("Jake")
+print(num_voti_jake)
+#L'output in questo caso sarà "9"!
+```
+
+Possiamo anche utilizzare questo metodo per contare le apparizioni degli elementi all'interno di **liste bidimensionali**! Per es.:
+
+```python
+#Esempio lista bidimensionale:
+collezione_numerica = [[100, 200], [100, 200], [475, 29], [34, 34]]
+num_paio = collezione_numerica.count([100, 200])
+print(num_paio)
+#L'output in questo caso sarà "2"!
+```
+
+<h2> Il metodo sort(): </h2>
+
+Possiamo utilizzare questo metodo per ordinare gli elementi di una lista. Il metodo sort() non ha bisogno di essere assegnato a una variabile, in quanto modifica direttamente la lista! Per es.:
+
+```python
+#Esempio 1:
+lettere = ["f", "b", "d", "a", "e", "c"]
+lettere.sort()
+print(lettere)
+# L'output in questo caso sarà: ['a', 'b', 'c', 'd', 'e', 'f']
+
+#Esempio 2:
+indirizzi = ["221 B St.", "42 W. Way", "12 Grimmauld", "742 Terrace", "1600 Ave", "10 St."]
+indirizzi.sort()
+print(indirizzi)
+# L'output in questo caso sarà: ['10 St.', '12 Grimmauld', '1600 Ave', '221 B St.', '42 W. Way', '742 Terrace']
+
+#Esempio 3:
+nomi = ["Riccardo", "Valentina", "Federica", "Alberto", "Silvio"]
+nomi.sort()
+print(nomi)
+# L'output in questo caso sarà: ['Alberto', 'Federica', 'Riccardo', 'Silvio', 'Valentina']
+```
+
+Possiamo anche andare al contrario utilizzando **"reverse = True"**, per es.:
+
+```python
+#Esempio 1:
+lettere = ["f", "b", "d", "a", "e", "c"]
+lettere.sort(reverse = True)
+print(lettere)
+# L'output in questo caso sarà: ['f', 'e', 'd', 'c', 'b', 'a'] 
+
+
+#Esempio 2:
+città = ["Londra", "Parigi", "Roma", "Los Angeles", "New York"]
+città.sort(reverse = True)
+print(città)
+# L'output in questo caso sarà: ['Roma', 'Parigi', 'New York', 'Los Angeles', 'Londra']
+```
+
+<h2> La funzione sorted(): </h2>
+
+La funzione sorted() differisce dal metodo sort() per due ragioni: 
+- Viene inserita prima di una lista, non dopo (come ogni funzione built-in);
+- Genera una nuova lista invece di modificarne una già esistente.
+<br> Vediamola in pratica con un es.:
+
+```python
+# Prendiamo come esempio una lista di giochi:
+giochi = ["Portal", "Minecraft", "Pacman", "Tetris", "The Sims", "Pokemon"]
+
+# Utilizziamo ila funzione sorted:
+giochi_sorted = sorted(giochi)
+# E' stata così creata una nuova lista, ordinata, vediamolo nell'output:
+
+print(giochi)
+# L'output in questo caso sarà: ['Portal', 'Minecraft', 'Pacman', 'Tetris', 'The Sims', 'Pokemon']
+
+print(giochi_sorted)
+# Mentre l'output in questo caso sarà: ['Minecraft', 'Pacman', 'Pokemon', 'Portal', 'Tetris', 'The Sims']
+```
+
+<h2> Le tuple: </h2>
+
+La tupla è una lista di valori separati da virgole, simile a una normale lista, ma che è **immutabile**: una volta definita una tupla essa non può essere modificata, né possono essere aggiunti nuovi elementi! Si segnano con le parentesi tonde (), per es.:
+
+```python
+tupla = ("a", "b", "c", "d", "e")
+```
+Se provassimo a usare il metodo .pop() su una tupla avremmo un errore in quanto essa non può essere modificata:
+<img width="580" height="135" alt="image" src="https://github.com/user-attachments/assets/9ad6edba-8acd-4605-96aa-00f558be3964" />
+
+<h2> La funzione zip(): </h2>
+
+La funzione zip() ci permette di combinare rapidamente insiemi di dati associati senza dover fare affidamento su liste multi-dimensionali, essa prende due (o più) liste come input e ci restituisce un oggetto tupla contenente tali elementi, in ordine di posizione. Per es.:
+
+```python
+lettere = ["a", "b", "c", "d", "e"]
+nomi = ["Anna", "Bruno", "Ciro", "Daniele", "Elena"]
+
+lettere_e_nomi = zip(lettere, nomi)
+print(lettere_e_nomi)
+```
+L'output in questo caso sarà: **<zip object at 0x7f1631e86b48>**. Questo output ci mostra la posizione dell'oggetto nella nostra memoria, non gli elementi al suo interno! Possiamo però convertire quest'oggetto in una lista utilizzando la funzione già nota:
+
+```python
+lista_visibile = list(lettere_e_nomi)
+print(lista_visibile)
+```
+L'output in questo caso sarà: [('a', 'Anna'), ('b', 'Bruno'), ('c', 'Ciro'), ('d', 'Daniele'), ('e', 'Elena')]
