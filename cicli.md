@@ -28,15 +28,16 @@ frutta_negozio = ["Mele", "Pere", "Banane", "Mango", "Prugne"]
 # Creiamo un ciclo for per avere come output tutto l'elenco della frutta:
 for frutta_negozio in frutta_negozio:
   print(frutta_negozio)
-# L'output in questo caso sarà:
-# Mele
-# Pere
-# Banane
-# Mango
-# Prugne
-# Su 5 distinte linee. È stato eseguito un print() per ogni elemento della lista!
 ```
-Il metodo utilizzato sopra è uno dei possibili modi, ma dobbiamo fare una precisazione: **il nome delle variabili temporanee è arbitrario e non dev'essere definito in precedenza**! Questo ci permette di assegnare qualsiasi nome alle nostre variabili temporanee, per rendere il codice più leggibile. Per es.:
+Gli output in questo caso saranno:
+``Mele``
+``Pere``
+``Banane``
+``Mango``
+``Prugne``
+<br>È stato eseguito un print() per ogni elemento della lista!
+
+<br>Il metodo utilizzato sopra è uno dei possibili modi, ma dobbiamo fare una precisazione: **il nome delle variabili temporanee è arbitrario e non dev'essere definito in precedenza**! Questo ci permette di assegnare qualsiasi nome alle nostre variabili temporanee, per rendere il codice più leggibile. Per es.:
 
 ```python
 # Esempio nome variabile temporanea 1:
@@ -65,7 +66,7 @@ lista_20 = range(20)
 for num in lista_20:
     print("Ciao!")
 ```
-Gli output in questo caso saranno 20 righe "Ciao!". Possiamo anche impostarlo direttamente come:
+Gli output in questo caso saranno 20 righe ``Ciao!``. Possiamo anche impostarlo direttamente come:
 
 ```python
 for num in range(20):
@@ -77,25 +78,25 @@ Proviamo ora a utilizzare la variabile temporanea per tenere traccia dei vari st
 ```python
 for saluto in range(5):
   print("Questo è il saluto numero: " + str(saluto))
-# L'output in questo caso sarà:
-# Questo è il saluto numero: 0
-# Questo è il saluto numero: 1
-# Questo è il saluto numero: 2
-# Questo è il saluto numero: 3
-# Questo è il saluto numero: 4
 ```
-Se volessimo vedere un conteggio che parte da 1, dovremmo semplicemente addizionare 1 agli output:
+Gli output in questo caso saranno:
+``Questo è il saluto numero: 0``
+``Questo è il saluto numero: 1``
+``Questo è il saluto numero: 2``
+``Questo è il saluto numero: 3``
+``Questo è il saluto numero: 4``
+<br>Se volessimo vedere un conteggio che parte da 1, dovremmo semplicemente addizionare 1 agli output:
 
 ```python
 for saluto in range(5):
   print("Questo è il saluto numero: " + str(saluto + 1))
-# L'output in questo caso sarà:
-# Questo è il saluto numero: 1
-# Questo è il saluto numero: 2
-# Questo è il saluto numero: 3
-# Questo è il saluto numero: 4
-# Questo è il saluto numero: 5
 ```
+Gli output in questo caso saranno:
+``Questo è il saluto numero: 1``
+``Questo è il saluto numero: 2``
+``Questo è il saluto numero: 3``
+``Questo è il saluto numero: 4``
+``Questo è il saluto numero: 5``
 <h2> I cicli while: </h2>
 I cicli while eseguono il blocco di codice fintantoché la condizione assegnata è vera. 
 <br> La struttura generale è: 
@@ -119,7 +120,7 @@ while contatore >= 0:
     contatore -= 1
 print("Ho finito di contare!")
 ```
-Gli output in questo caso saranno i numeri da 30 a 0 in ordine decrescente, con la frase finale: "Ho finito di contare!", che verrà stampata come output soltanto dopo che il ciclo while avrà finito di eseguirsi ciclicamente.
+Gli output in questo caso saranno i numeri da 30 a 0 in ordine decrescente, con la frase finale: ``"Ho finito di contare!"``, che verrà stampata come output soltanto dopo che il ciclo while avrà finito di eseguirsi ciclicamente.
 
 <h2>Le Liste nei cicli while:</h2>
 I cicli while non sono utili soltanto per contare, essi possono anche essere utilizzati per iterare gli elementi di una lista!
@@ -167,8 +168,8 @@ for num in lista:
 	# Se il numero 39 è presente, allora stampa l'output:
     print("Ho trovato il numero che ti interessa, esso è: " + str(num) + ".")
 ```
-
-L'output in questo caso sarà: "Ho trovato il numero che ti interessa, esso è: 39." Il problema di questo ciclo è in realtà un **problema invisibile**, non possiamo rendercene conto in base all'output. 
+L'output in questo caso sarà: ``"Ho trovato il numero che ti interessa, esso è: 39."`` 
+<br> Il problema di questo ciclo è in realtà un **problema invisibile**, non possiamo rendercene conto in base all'output. 
 <br> La verità è che il nostro ciclo for, nonostante abbia trovato il numero bersaglio 39, continua a lavorare in background fino a quando giunge al termine dell'intera lista. Vediamolo utilizzando print() prima dell'if:
 
 ```python
@@ -179,7 +180,7 @@ for num in lista:
     print("Ho trovato il numero che ti interessa, esso è: " + str(num) + ".")
 ```
 
-L'output in questo caso saranno tutti i numeri fino al 39, poi la frase "Ho trovato il numero che ti interessa, esso è: 39." e poi tutti i numeri fino al 100! Questo potrebbe diventare un enorme spreco di risorse nel caso in cui ci fossero migliaia e migliaia di elementi presenti all'interno della lista!
+L'output in questo caso saranno tutti i numeri fino al 39, poi la frase ``"Ho trovato il numero che ti interessa, esso è: 39."`` e poi tutti i numeri fino al 100! Questo potrebbe diventare un enorme spreco di risorse nel caso in cui ci fossero migliaia e migliaia di elementi presenti all'interno della lista!
 <br> Per ovviare al problema, utilizziamo **break**: una volta che il programma incontra il break, il ciclo viene terminato immediatamente! Vediamolo subito:
 
 ```python
@@ -190,4 +191,73 @@ for num in lista:
     print("Ho trovato il numero che ti interessa, esso è: " + str(num) + ".")
     break
 ```
-Ora l'output saranno i numeri fino al 39, seguiti dalla frase "Ho trovato il numero che ti interessa, esso è: 39.", abbiamo quindi visto come il break possa interrompere il ciclo una volta trovato il bersaglio, evitando sprechi di risorse!
+Ora l'output saranno i numeri fino al 39, seguiti dalla frase ``"Ho trovato il numero che ti interessa, esso è: 39."``, abbiamo quindi visto come il break possa interrompere il ciclo una volta trovato il bersaglio, evitando sprechi di risorse!
+
+<h2>Il continue nei cicli:</h2>
+È fondamentale nel caso in cui volessimo far continuare il loop soltanto per determinati elementi della lista. Generalmente, come il break, viene utilizzato insieme a qualche condizionale (if, else, elif).
+<br>Per es., se avessimo una lista contenenti numeri sia positivi che negativi, e volessimo far funzionare il ciclo soltanto per i numeri positivi:
+
+```python
+lista_numeri = range(0, 16)
+lista_numeri_2 = range(-25, 0)
+#Abbiamo creato due liste, una contenente i numeri positivi da 0 a 15, 
+# l'altra i numeri negativi da -25 a 0.
+
+lista_definitiva = list(lista_numeri) + list(lista_numeri_2)
+#Uniamo le due liste
+
+for n in list(lista_definitiva):
+  if n >= 0:
+    continue
+  print(n)
+#Abbiamo utilizzato il continue
+```
+Gli output in questo caso saranno i numeri negativi da -25 a -1 (inclusi), perché? <br> Perché, se andassimo a guardare bene l'impostazione del condizionale if, vedremmo che abbiamo posto come condizione "*se il numero è maggiore o uguale a 0*" e successivamente abbiamo utilizzato continue. Il **continue** altro non fa che **salta**re tutti gli **elementi** che **soddisfano** la nostra **condizione**! Quindi i numeri maggiori o uguali a 0 saranno saltati, lasciando in output solo i numeri che non rispettano tale condizione, ovvero da -25 a -1 (inclusi), perché la condizione sarà False!
+
+<h2>I cicli annidati:</h2>
+I cicli annidati vengono utilizzati quando vogliamo iterare dei dati su più dimensioni, per esempio all'interno di liste bidimensionali. Ipotizziamo di dover visualizzare alcuni rami di alcune materie, per es.:
+
+```python
+rami_materie = [["Algebra", "Geometria"], ["Meccanica", "Termodinamica"], ["Cybersecurity", "Intelligenza Artificiale"]]
+
+for materie in rami_materie:
+  print(materie)
+```
+Gli output in questo caso saranno: 
+``['Algebra', 'Geometria']``
+``['Meccanica', 'Termodinamica']``
+``['Cybersecurity', 'Intelligenza Artificiale']``
+<br>Ma se volessimo direttamente visualizzare l'elenco delle discipline, senza suddivisioni per materia principale? Allora dovremmo annidare i nostri cicli! Vediamolo con lo stesso esempio:
+
+```python
+rami_materie = [["Algebra", "Geometria"], ["Meccanica", "Termodinamica"], ["Cybersecurity", "Intelligenza Artificiale"]]
+
+for materie in rami_materie:
+  for discipline in materie:
+    print(discipline)
+```
+Gli output in questo caso saranno:
+``Algebra``
+``Geometria``
+``Meccanica``
+``Termodinamica``
+``Cybersecurity``
+``Intelligenza Artificiale``
+<br>Siamo riusciti in questo modo a stampare tutti gli elementi utilizzando i cicli annidati! <br><br> **ATTENZIONE:** Quando definiamo una variabile temporanea in un ciclo annidato, essa dev'essere diversa dalle variabili definite precedentemente, per evitare di incorrere in bug! <br> <br> Vediamo un esempio più complesso:
+
+```python
+liste_numeri = [[7, 9, 11], [20, 24, 28], [5, 25, 45]]
+somma = 0
+```
+Abbiamo impostato questa lista bidimensionale contenente vari numeri, come potremmo ricavare la somma totale di tutti i numeri a nostra disposizione, utilizzando cicli annidati? <br> <br>Soluzione:
+
+```python
+liste_numeri = [[7, 9, 11], [20, 24, 28], [5, 25, 45]]
+somma = 0
+
+for lista in liste_numeri:
+  for numero in lista:
+    somma += numero
+print(somma)
+```
+L'output in questo caso sarà ``174``, che è proprio la somma di tutti i numeri a nostra disposizione!
